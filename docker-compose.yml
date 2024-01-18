@@ -1,0 +1,65 @@
+version: '3'
+services: 
+  user:
+    build:
+      context: ./user
+      dockerfile: Dockerfile
+    container_name: user-service
+    depends_on:
+      - user-mongodb
+    ports:
+      - "4001:4001"
+
+  user-mongodb:
+    image: mongo:latest
+    container_name: user-mongodb
+    ports:
+      - "27017:27017"
+
+  product:
+    build:
+      context: ./product
+      dockerfile: Dockerfile
+    container_name: product-service
+    depends_on:
+      - product-mongodb
+    ports:
+      - "4002:4002"
+
+  product-mongodb:
+    image: mongo:latest
+    container_name: product-mongodb
+    ports:
+      - "27018:27017"
+
+  cart:
+    build:
+      context: ./cart
+      dockerfile: Dockerfile
+    container_name: cart-service
+    depends_on:
+      - cart-mongodb
+    ports:
+      - "4003:4003"
+
+  cart-mongodb:
+    image: mongo:latest
+    container_name: cart-mongodb
+    ports:
+      - "27019:27017"
+
+  order:
+    build:
+      context: ./order
+      dockerfile: Dockerfile
+    container_name: order-service
+    depends_on:
+      - order-mongodb
+    ports:
+      - "4004:4004"
+
+  order-mongodb:
+    image: mongo:latest
+    container_name: order-mongodb
+    ports:
+      - "27020:27017"
