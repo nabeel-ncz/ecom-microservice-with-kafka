@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name:  order-service
 spec:
+  type: NodePort
   selector:
     app: order
   ports:
   - name:  order
     protocol: TCP
-    port:  4001
-    targetPort:  4001
+    port:  83
+    targetPort:  4004
+    nodePort: 30004

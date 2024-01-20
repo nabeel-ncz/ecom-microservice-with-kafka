@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name:  cart-service
 spec:
+  type: NodePort
   selector:
     app: cart
   ports:
   - name:  cart
     protocol: TCP
-    port:  4001
-    targetPort:  4001
+    port:  82
+    targetPort:  4003
+    nodePort: 30003

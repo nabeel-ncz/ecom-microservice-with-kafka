@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name:  user-service
 spec:
+  type: NodePort
   selector:
     app: user
   ports:
   - name:  user
     protocol: TCP
-    port:  4001
+    port:  80
     targetPort:  4001
+    nodePort: 30001
