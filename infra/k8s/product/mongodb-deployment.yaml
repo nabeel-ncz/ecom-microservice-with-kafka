@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-mongodb-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-mongodb
+  template:
+    metadata:
+      labels:
+        app: product-mongodb
+    spec:
+      containers:
+        - name:  product-mongodb
+          image:  mongo:latest
+          

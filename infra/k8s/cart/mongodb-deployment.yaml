@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart-mongodb-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cart-mongodb
+  template:
+    metadata:
+      labels:
+        app: cart-mongodb
+    spec:
+      containers:
+        - name:  cart-mongodb
+          image:  mongo:latest
+          

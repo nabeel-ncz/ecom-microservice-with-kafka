@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name:  cart-mongodb-service
+spec:
+  selector:
+    app: cart-mongodb
+  ports:
+  - name:  db
+    protocol: TCP
+    port:  27017
+    targetPort: 27017
